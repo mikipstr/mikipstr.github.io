@@ -14,23 +14,19 @@ function myFunction() {
     document.body.style.paddingTop = "0";
   }
 }
-
-// Function to get the date of the next Thursday
-function getNextThursday() {
-  const now = new Date();
-  const nextThursday = new Date(now);
-  const daysUntilNextThursday = (4 - now.getDay() + 7) % 7;
-  nextThursday.setDate(now.getDate() + (daysUntilNextThursday === 0 ? 7 : daysUntilNextThursday)); // Set to next Thursday
-  nextThursday.setHours(0, 0, 0, 0); // Set to the start of the day
-  return nextThursday;
+// Function to get the target date
+function getTargetDate(dateString) {
+  const targetDate = new Date(dateString);
+  targetDate.setHours(0, 0, 0, 0); // Set to the start of the day
+  return targetDate;
 }
 
 // Function to update the countdown timer
-function updateCountdown() {
+function updateCountdown(targetDate) {
   const countdownElement = document.getElementById('countdown');
   const now = new Date().getTime();
-  const nextThursday = getNextThursday().getTime();
-  const distance = nextThursday - now;
+  const targetTime = targetDate.getTime();
+  const distance = targetTime - now;
 
   const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
   const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
@@ -45,10 +41,12 @@ function updateCountdown() {
   }
 }
 
-// Update the countdown timer every 10 milliseconds
-setInterval(updateCountdown, 10);
-updateCountdown();
+// Set the target date (e.g., September 5, 2024)
+const targetDate = getTargetDate('2024-09-05');
 
+// Update the countdown timer every 10 milliseconds
+setInterval(() => updateCountdown(targetDate), 10);
+updateCountdown(targetDate);
 // Function to handle background audio play
 function handleAudioPlayback() {
   var audio = document.getElementById('background-audio');
