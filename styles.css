@@ -25,6 +25,7 @@
     scroll-behavior: smooth;
   }
 
+
   /* Header image styling */
   header img {
     max-height: 100px;
@@ -338,6 +339,33 @@
 
   /* Media Queries for Responsive Design */
 
+  @media (max-width: 1600px) {
+    .profile-picture{
+      margin-top: 150px;
+    }
+    h2 {
+      font-size: 25px;
+    }
+    h1{
+      font-size: 25px;
+    }
+    h3 {
+      font-size: 60px;
+    }
+    h3::before {
+      top: 70px;
+      left: 80px;
+      width: 400px;
+      height: 400px;
+    }
+    h3::after {
+      top: 130px;
+      right: 130px;
+      width: 350px;
+      height: 350px;
+    }
+  }
+
   /* For devices with max-width of 1200px */
   @media (max-width: 1200px) {
     h2 {
@@ -359,6 +387,9 @@
       height: 350px;
     }
   }
+
+
+
 
   /* For devices with max-width of 800px */
   @media (max-width: 800px) {
@@ -464,6 +495,7 @@
 
 
     .profile-picture {
+      margin-top: 100px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
