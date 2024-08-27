@@ -42,7 +42,7 @@ function updateCountdown(targetDate) {
 }
 
 // Set the target date (e.g., September 5, 2024)
-const targetDate = getTargetDate('2024-09-05');
+const targetDate = getTargetDate('2024-09-20');
 
 // Update the countdown timer every 10 milliseconds
 setInterval(() => updateCountdown(targetDate), 10);
